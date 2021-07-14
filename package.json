@@ -1,0 +1,63 @@
+{
+  "name": "clone_project",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/devSujinKim/clone_project"
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.11.3",
+    "@react-google-maps/api": "^2.1.1",
+    "@storybook/addon-storysource": "^6.2.9",
+    "clsx": "^1.1.1",
+    "i18next": "^19.8.7",
+    "next": "^10.0.7",
+    "next-seo": "^4.17.0",
+    "prop-types": "^15.7.2",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-i18next": "^11.8.6",
+    "rimraf": "^3.0.2",
+    "swiper": "^6.5.4"
+  },
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "preexport": "npm run build",
+    "export": "rimraf out && next export",
+    "prestart": "npm run export",
+    "deploy": "aws s3 sync out/ s3://$BUCKET_NAME --acl public-read",
+    "start": "serve out",
+    "lint:i18n": "eslint src/config/lang/*.json",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook",
+    "chromatic": "npx chromatic --project-token"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.12.13",
+    "@storybook/addon-actions": "^6.2.9",
+    "@storybook/addon-essentials": "^6.2.9",
+    "@storybook/addon-links": "^6.2.9",
+    "@storybook/react": "^6.2.9",
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.2.2",
+    "babel-plugin-i18next-extract": "^0.8.2",
+    "babel-preset-react": "^6.24.1",
+    "chromatic": "^5.8.3",
+    "eslint": "^7.26.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-react-app": "^6.0.0",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-plugin-flowtype": "^5.7.2",
+    "eslint-plugin-import": "^2.23.2",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-react": "^7.23.2",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "file-loader": "^6.2.0",
+    "prettier": "2.2.1",
+    "url-loader": "^4.1.1"
+  }
+}
