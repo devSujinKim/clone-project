@@ -27,7 +27,6 @@ const useStyles = makeStyles(() => ({
     padding: 5,
   },
   logoWrap: {
-    margin: 0,
     justifyContent: 'center',
   },
 }));
