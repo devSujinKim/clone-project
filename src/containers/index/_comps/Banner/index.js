@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
       height: 6,
       margin: '0 4px',
       borderRadius: '50%',
-      transform: 'scale(.66)',
+      backgroundColor: theme.palette.background.default,
       opacity: 0.5,
     },
     '& .swiper-pagination-bullet-active': {
@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
       height: '100%',
     },
     '&.swiper-slide-active $titleWrap': {
-      animation: '$slideUp 1s 0.2s both',
+      animation: '$slideUp 1s 0.6s both',
     },
   },
   category: {
@@ -104,10 +104,6 @@ const Banner = () => {
       swiperClassName={classes.swiper}
       autoplay={{ delay: 4000 }}
       speed={1300}
-      effect="fade"
-      fadeEffect={{
-        crossFade: true,
-      }}
     >
       {ITEMS.map(({ src, category, title, subTitle }) => (
         <SwiperSlide className={classes.swiperSlide} key={title}>

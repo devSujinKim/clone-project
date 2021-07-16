@@ -3,12 +3,7 @@ import React from 'react';
 import propTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import { Swiper } from 'swiper/react';
-import SwiperCore, {
-  Navigation,
-  Pagination,
-  Autoplay,
-  EffectFade,
-} from 'swiper';
+import SwiperCore, { Navigation, Pagination, Autoplay } from 'swiper';
 import clsx from 'clsx';
 
 const useStyles = makeStyles(() => ({
@@ -47,7 +42,7 @@ const useStyles = makeStyles(() => ({
 const SwiperSlider = ({ children, swiperClassName, ...props }) => {
   const classes = useStyles();
 
-  SwiperCore.use([Navigation, Pagination, Autoplay, EffectFade]);
+  SwiperCore.use([Navigation, Pagination, Autoplay]);
 
   return (
     <div className={classes.root}>
