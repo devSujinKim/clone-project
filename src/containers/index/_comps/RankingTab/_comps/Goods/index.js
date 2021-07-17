@@ -24,6 +24,7 @@ const useStyles = makeStyles((theme) => ({
     '& > strong': {
       fontSize: 13,
       fontWeight: theme.typography.fontWeightMedium,
+      color: theme.palette.text.primary,
     },
   },
   rankNum: {
