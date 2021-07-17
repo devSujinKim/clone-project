@@ -5,6 +5,7 @@ import { ArrowRightIcon, FilterIcon } from 'components/Icon';
 import goodsMock from 'mocks/rankingFirst';
 import Goods from './_comps/Goods';
 import SubBanner from './_comps/SubBanner';
+import SubBannerTransparent from './_comps/SubBannerTransparent';
 
 const useStyles = makeStyles((theme) => ({
   titleWrap: {
@@ -74,6 +75,7 @@ const RankingTab = () => {
         )}
       </div>
       <SubBanner />
+      <SubBannerTransparent />
     </div>
   );
 };
