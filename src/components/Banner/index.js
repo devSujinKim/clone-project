@@ -102,7 +102,7 @@ const Banner = () => {
   return (
     <SwiperSlider
       swiperClassName={classes.swiper}
-      autoplay={{ delay: 4000 }}
+      // autoplay={{ delay: 4000 }}
       speed={1300}
     >
       {ITEMS.map(({ src, category, title, subTitle }) => (

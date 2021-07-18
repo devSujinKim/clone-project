@@ -5,9 +5,9 @@ import { ArrowRightIcon, FilterIcon } from 'components/Icon';
 import rankingFirst from 'mocks/rankingFirst';
 import rankingSecond from 'mocks/rankingSecond';
 import rankingThird from 'mocks/rankingThird';
+import SubBanner from 'components/SubBanner';
+import SubBannerTransparent from 'components/SubBannerTransparent';
 import Goods from './_comps/Goods';
-import SubBanner from './_comps/SubBanner';
-import SubBannerTransparent from './_comps/SubBannerTransparent';
 
 const useStyles = makeStyles((theme) => ({
   titleWrap: {
