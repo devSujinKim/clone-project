@@ -75,65 +75,26 @@ const SubTab = () => {
 
   // active된 탭메뉴 좌측 정렬
   const [selectedTab, setSelectedTab] = useState(0);
-  const scrollToLeft = () => {
-    document.querySelector(`.${classes.selected}`).scrollTo(0, 0);
-  };
-
   const tabsChanged = (index) => {
     setSelectedTab(index);
-    scrollToLeft();
   };
 
   useEffect(() => {
-    // const viewportWidth = window.innerWidth;
-    // const scrollerWrap = document
-    //   .querySelector(`.${classes.scroller}`)
-    //   .scroll(0, 0);
-    // const selectedTabWidth = document.querySelector(`.${classes.selected}`)
-    //   .offsetWidth;
-    // const selectedOffsetLeft = document.querySelector(`.${classes.selected}`)
-    //   .offsetLeft;
-    // const scrollLeftValue =
-    //   selectedOffsetLeft + selectedTabWidth / 2 - viewportWidth / 2;
-    // const aniScrollTo = () => {
-    // // };
-    // console.log(selectedTab);
-    // const safariScroll = (duration) => {
-    //   const currentScrollLeft = scrollerWrap.scrollLeft;
-    //   function animateSafariScrollTo(startX, endX, duration) {
-    //     const unitX = (scrollLeftValue - currentScrollLeft) / duration;
-    //     const startTime = new Date().getTime();
-    //     const endTime = new Date().getTime() + duration;
-    //     const scrollTo = () => {
-    //       const now = new Date().getTime();
-    //       const passed = now - startTime;
-    //       if (now <= endTime) {
-    //         scrollerWrap.scrollLeft = currentScrollLeft + unitX * passed;
-    //         requestAnimationFrame(scrollTo);
-    //       }
-    //     };
-    //     requestAnimationFrame(scrollTo);
-    //   }
-    //   animateSafariScrollTo(currentScrollLeft, scrollLeftValue, duration);
-    // };
-    // setTimeout(() => {
-    //   if ('scrollBehavior' in document.documentElement.style) {
-    //     aniScrollTo();
-    //   } else {
-    //     safariScroll(300);
-    //   }
-    // }, 310);
-    // setTimeout(() => {
-    //   const scrollerCurrentLeft = scrollerWrap.scrollLeft;
-    //   const isStartPosition = scrollLeftValue <= 0 && scrollerCurrentLeft === 0;
-    //   if (!isStartPosition) {
-    //     if ('scrollBehavior' in document.documentElement.style) {
-    //       aniScrollTo();
-    //     } else {
-    //       safariScroll(300);
-    //     }
-    //   }
-    // }, 650);
+    const viewportWidth = window.innerWidth;
+    const scrollerWrap = document.querySelector(`.${classes.scroller}`);
+    const selectedTab = document.querySelector(`.${classes.selected}`);
+
+    let scrollLeftValue;
+    const targetLeft = 0;
+    const selectedTabPos = targetLeft + selectedTab.outerWidth / 2;
+    if (selectedTabPos <= viewportWidth / 2) {
+      scrollLeftValue = 0;
+    } else if (0 - selectedTabPos <= viewportWidth / 2) {
+      scrollLeftValue = 0 - scrollerWrap.width();
+    }
+    selectedTab.scrollTo({
+      left: scrollLeftValue,
+    });
   }, [selectedTab]);
 
   return (
