@@ -51,9 +51,16 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   txtWrap: {
-    margin: 'auto',
+    display: 'flex',
     padding: '0 135px 0 15px',
     width: '100%',
+    height: 80,
+    justifyContent: 'center',
+    flexDirection: 'column',
+    whiteSpace: 'normal',
+    textOverflow: 'ellipsis',
+    wordBreak: 'break-word',
+    overflow: 'hidden',
   },
   title: {
     fontSize: 15,

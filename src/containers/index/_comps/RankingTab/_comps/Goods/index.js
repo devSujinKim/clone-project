@@ -1,6 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import propTypes from 'prop-types';
+import clsx from 'clsx';
 
 const useStyles = makeStyles((theme) => ({
   wrap: {
@@ -15,12 +16,27 @@ const useStyles = makeStyles((theme) => ({
       textDecoration: 'none',
     },
   },
+  topRank: {
+    '&:nth-child(1), &:nth-child(2)': {
+      flex: '0 0 calc(100% / 2 - 1.5px)',
+      '& > a > span': {
+        backgroundColor: theme.palette.grey[900],
+      },
+    },
+  },
   image: {
     width: '100%',
     height: 'auto',
   },
+  info: {
+    display: 'flex',
+    flexDirection: 'column',
+    flexWrap: 'wrap',
+  },
   priceInfo: {
     display: 'flex',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
     '& > strong': {
       fontSize: 13,
       fontWeight: theme.typography.fontWeightMedium,
@@ -42,6 +58,10 @@ const useStyles = makeStyles((theme) => ({
   },
   name: {
     paddingTop: 10,
+    whiteSpace: 'nowrap',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+    wordWrap: 'break-word',
     fontSize: 12,
     color: theme.palette.grey[700],
   },
@@ -62,21 +82,33 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Goods = ({ rankNum, name, image, price, badge, salePercent }) => {
+const Goods = ({
+  rankNum,
+  name,
+  image,
+  price,
+  badge,
+  salePercent,
+  topRank,
+}) => {
   const classes = useStyles();
 
   return (
-    <div className={classes.wrap}>
+    <div className={clsx(classes.wrap, topRank && classes.topRank)}>
       <a href="/">
-        <span className={classes.rankNum}>{rankNum}</span>
+        <span className={clsx(classes.rankNum, topRank && classes.topRankNum)}>
+          {rankNum}
+        </span>
         <img src={image} alt="상품 이미지" className={classes.image} />
-        <p className={classes.name}>{name}</p>
-        <div className={classes.priceInfo}>
-          <strong>{price}</strong>
-          {salePercent && (
-            <span className={classes.salePercent}>{salePercent}</span>
-          )}
-          {badge && <span className={classes.badge}>{badge}</span>}
+        <div className={classes.info}>
+          <p className={classes.name}>{name}</p>
+          <div className={classes.priceInfo}>
+            <strong>{price}</strong>
+            {salePercent && (
+              <span className={classes.salePercent}>{salePercent}</span>
+            )}
+            {badge && <span className={classes.badge}>{badge}</span>}
+          </div>
         </div>
       </a>
     </div>
@@ -90,6 +122,7 @@ Goods.defaultProps = {
   price: '',
   badge: '',
   salePercent: '',
+  topRank: false,
 };
 
 Goods.propTypes = {
@@ -99,6 +132,7 @@ Goods.propTypes = {
   price: propTypes.string,
   badge: propTypes.string,
   salePercent: propTypes.string,
+  topRank: propTypes.bool,
 };
 
 export default Goods;
