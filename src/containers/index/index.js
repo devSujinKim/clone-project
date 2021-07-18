@@ -3,8 +3,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import Layout from 'components/Layout/ContentsWrap';
 import Header from 'components/Layout/Header';
 import clsx from 'clsx';
-import Banner from './_comps/Banner';
+import Banner from 'components/Banner';
 import RankingTab from './_comps/RankingTab';
+import CodiTab from './_comps/CodiTab';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -44,7 +45,7 @@ const TABS = [
   },
   {
     label: '코디',
-    content: '2',
+    content: <CodiTab />,
   },
   {
     label: '업데이트',
@@ -56,9 +57,9 @@ const Index = () => {
   const classes = useStyles();
 
   // Main Tab
-  const [activeIndex, setActiveIndex] = useState(0);
-  const onClickTab = (index) => {
-    setActiveIndex(index);
+  const [selectedTab, setSelectedTab] = useState(0);
+  const tabsChanged = (index) => {
+    setSelectedTab(index);
   };
 
   return (
@@ -72,17 +73,17 @@ const Index = () => {
               <button
                 type="button"
                 key={tab.label}
-                onClick={() => onClickTab(index)}
+                onClick={() => tabsChanged(index)}
                 className={clsx(
                   classes.tabBtn,
-                  activeIndex === index && classes.selected
+                  selectedTab === index && classes.selected
                 )}
               >
                 {tab.label}
               </button>
             ))}
           </div>
-          {TABS[activeIndex].content}
+          {TABS[selectedTab].content}
         </div>
       </Layout>
     </div>
