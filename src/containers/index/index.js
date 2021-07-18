@@ -6,6 +6,7 @@ import clsx from 'clsx';
 import Banner from 'components/Banner';
 import RankingTab from './_comps/RankingTab';
 import CodiTab from './_comps/CodiTab';
+import UpdateTab from './_comps/UpdateTab';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -49,7 +50,7 @@ const TABS = [
   },
   {
     label: '업데이트',
-    content: '3',
+    content: <UpdateTab />,
   },
 ];
 

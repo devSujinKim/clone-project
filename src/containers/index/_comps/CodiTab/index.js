@@ -75,7 +75,7 @@ const useStyles = makeStyles((theme) => ({
   styleWrap: {
     display: 'flex',
     justifyContent: 'space-between',
-    padding: '0 15px',
+    padding: '0 15px 4px',
     '& img': {
       width: '100%',
       height: 'auto',
@@ -97,7 +97,7 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: 3,
     width: '50%',
     borderRadius: 4,
-    '&:nth-child(1), &:nyh-child(2)': {
+    '&:nth-child(3), &:nth-child(4)': {
       paddingBottom: 0,
     },
     '& a': {
