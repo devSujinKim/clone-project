@@ -6,6 +6,7 @@ const BellIcon = dynamic(() => import('./components/BellIcon'));
 const CartIcon = dynamic(() => import('./components/CartIcon'));
 const FilterIcon = dynamic(() => import('./components/FilterIcon'));
 const HeartIcon = dynamic(() => import('./components/HeartIcon'));
+const RefreshIcon = dynamic(() => import('./components/RefreshIcon'));
 
 export {
   ArrowRightIcon,
@@ -14,4 +15,5 @@ export {
   CartIcon,
   FilterIcon,
   HeartIcon,
+  RefreshIcon,
 };
