@@ -86,11 +86,11 @@ const SubTab = () => {
 
     let scrollLeftValue;
     const targetLeft = 0;
-    const selectedTabPos = targetLeft + selectedTab.outerWidth / 2;
+    const selectedTabPos = targetLeft + selectedTab.offsetWidth / 2;
     if (selectedTabPos <= viewportWidth / 2) {
       scrollLeftValue = 0;
     } else if (0 - selectedTabPos <= viewportWidth / 2) {
-      scrollLeftValue = 0 - scrollerWrap.width();
+      scrollLeftValue = 0 - scrollerWrap.offsetWidth;
     }
     selectedTab.scrollTo({
       left: scrollLeftValue,
