@@ -52,7 +52,9 @@ const useStyles = makeStyles((theme) => ({
   },
   subBannerWrap: {
     display: 'flex',
+    width: '100%',
     backgroundColor: theme.palette.grey[100],
+    borderRadius: 6,
   },
   subBannerTxtWrap: {
     margin: 'auto',
