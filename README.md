@@ -11,6 +11,14 @@ npm install
 npm run dev
 ```
 
+## 배포방법
+
+Deploy site
+
+```
+npm run build
+```
+
 ## 기술 스택
 
 - 웹 프레임워크 : React, Next.js
