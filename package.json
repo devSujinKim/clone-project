@@ -24,21 +24,10 @@
     "dev": "next",
     "build": "next build",
     "preexport": "npm run build",
-    "export": "rimraf out && next export",
-    "prestart": "npm run export",
-    "deploy": "aws s3 sync out/ s3://$BUCKET_NAME --acl public-read",
-    "start": "serve out",
-    "lint:i18n": "eslint src/config/lang/*.json",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
-    "chromatic": "npx chromatic --project-token"
+    "start": "serve out"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.12.13",
-    "@storybook/addon-actions": "^6.2.9",
-    "@storybook/addon-essentials": "^6.2.9",
-    "@storybook/addon-links": "^6.2.9",
-    "@storybook/react": "^6.2.9",
     "babel-core": "^6.26.3",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.2.2",
